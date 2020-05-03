@@ -1,10 +1,6 @@
-org 100h
-
-;cs semilla
-;inicio
-mov ax, 1000d ; 10.0
+mov ax, 120d ; 10.0
 mov [200h], ax
-mov ax, 325 ; 3.25 
+mov ax, 60; 3.25 
 mov [210h], ax
 call func2
 ;hasta aqui primera parte del ejercicios
@@ -44,9 +40,4 @@ div bx
 xor dx,dx
 mov [220h], ax
 ret
-
-
-
-
-
 
