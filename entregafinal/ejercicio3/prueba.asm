@@ -1,7 +1,8 @@
-org 100h
 
 section .text
-
+global CMAIN
+CMAIN:
+    mov ebp, esp; for correct debugging
 mov ax, 00h
 int 33h
 cmp ax, 00
@@ -13,11 +14,11 @@ mov [200h], bl
 call rectR
 lopi:
 call raton
-; call dentro
-; mov bl, [207h]
-; cmp bl, 04h
-; je sigo
-; jmp lopi
+call dentro
+mov bl, [207h]
+cmp bl, 04h
+je sigo
+jmp lopi
 sigo:
 call compD
 mov bl, [205h]
@@ -37,6 +38,7 @@ jmp lopi
 error:
 end:
 int 20h
+ret
 
 
 rectR:mov ah,00h
@@ -155,11 +157,5 @@ jmp fin3
 
 fin3:
 ret
-
-
-
-
-
-
 
 
