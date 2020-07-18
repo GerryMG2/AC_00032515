@@ -8,26 +8,26 @@ int 33h
 cmp ax, 00
 je error
 
-mov bl, 4h
-mov [200h], bl
+mov bx, 4h
+mov [200h], bx
 
 call rectR
 lopi:
 call raton
 call dentro
-mov bl, [207h]
-cmp bl, 04h
+mov bx, [207h]
+cmp bx, 04h
 je sigo
 jmp lopi
 sigo:
 call compD
-mov bl, [205h]
-cmp bl, 1h 
+mov bx, [205h]
+cmp bx, 1h 
 je end
 call raton
 call compI
-mov bl, [206h]
-cmp bl, 1h 
+mov bx, [206h]
+cmp bx, 1h 
 je color
 
 jmp lopi
@@ -58,31 +58,31 @@ cmp dx, 145d
 jbe s3
 ret
 
-dentro: mov bl,0h 
-mov [207],bl
-mov bl, [203h]
-cmp bl, 10
+dentro: mov bx,0h 
+mov [207],bx
+mov bx, [203h]
+cmp bx, 10
 ja endd
-mov bl,1h 
-mov [207],bl
-mov bl, [203h]
-cmp bl, 85
+mov bx,1h 
+mov [207],bx
+mov bx, [203h]
+cmp bx, 85
 jg endd
-mov bl, [207h]
-add bl, 1h
-mov [207h],bl
+mov bx, [207h]
+add bx, 1h
+mov [207h],bx
 
-mov bl, [204h]
-cmp bl, 70d
+mov bx, [204h]
+cmp bx, 70d
 ja endd
-mov bl,1h 
-mov [207],bl
-mov bl, [204h]
-cmp bl, 145d
+mov bx,1h 
+mov [207],bx
+mov bx, [204h]
+cmp bx, 145d
 jg endd
-mov bl, [207h]
-add bl, 1h
-mov [207h],bl
+mov bx, [207h]
+add bx, 1h
+mov [207h],bx
 
 endd:
 ret
@@ -100,26 +100,26 @@ int 33h
 ret
 
 compD:
-mov bl, [201h]
-cmp bl, 2h
+mov bx, [201h]
+cmp bx, 2h
 je term
-mov bl, 0h
-mov [205h],bl
+mov bx, 0h
+mov [205h],bx
 jmp fin
-term: mov bl, 1h
-mov [205h], bl
+term: mov bx, 1h
+mov [205h], bx
 fin:
 ret
 
 compI:
-mov bl, [201h]
-cmp bl, 1h
+mov bx, [201h]
+cmp bx, 1h
 je term2
-mov bl, 0h
-mov [206h],bl
+mov bx, 0h
+mov [206h],bx
 jmp fin2
-term2: mov bl, 1h 
-mov [206h], bl
+term2: mov bx, 1h 
+mov [206h], bx
 fin2:
 ret
 
@@ -128,30 +128,30 @@ ret
 
 
 
-col: mov bl, [200h]
-cmp bl, 4h
+col: mov bx, [200h]
+cmp bx, 4h
 je verd
-mov bl, [200h]
-cmp bl, 2h
+mov bx, [200h]
+cmp bx, 2h
 je azul
-mov bl, [200h]
-cmp bl, 9h
+mov bx, [200h]
+cmp bx, 9h
 je rojo
 
 
 
-azul:mov bl, 9h
-mov [200h], bl
+azul:mov bx, 9h
+mov [200h], bx
 jmp fin3
 
 
-verd: mov bl, 2h
-mov [200h], bl
+verd: mov bx, 2h
+mov [200h], bx
 jmp fin3
 
 
-rojo: mov bl, 4h
-mov [200h], bl
+rojo: mov bx, 4h
+mov [200h], bx
 jmp fin3
 
 
